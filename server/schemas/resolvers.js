@@ -10,7 +10,11 @@ const resolvers = {
   Query:{
     me: async(parent, {userId})=>{
       return User.findOne({_id:userId});
-    }
+    },
+    // searchGoogleBooks: async (parent, {query}) => {
+    //   return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
+    // }
+    
   },
   Mutation:{
     login: async(parent, {email, password})=>{
@@ -21,7 +25,7 @@ const resolvers = {
       }
 
       const correctPw = await profile.isCorrectPassword(password);
-
+ 
       if(!correctPw){
         throw AuthenticationError;
       }

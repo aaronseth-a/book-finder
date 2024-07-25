@@ -5,24 +5,24 @@ export const GET_ME = gql`
         me(userId: $userId){
             _id
             username
-            bookCount
+            booksCount
             savedBooks
         }
     }
 `;
 
-export const QUERY_GOOGLE_BOOk = gql`
-    query searchGoogleBooks($query: String!){
-        searchGoogleBooks(query: $query){
-            items {
-                id
-                volumeInfo {
-                    title
-                    authors
-                    description
-                    publishedDate
-                }
-            }
-        }
-    }
-`;
+// export const QUERY_GOOGLE_BOOk = gql`
+//     query searchGoogleBooks($query: String!){
+//         searchGoogleBooks(query: $query){
+//             items {
+//                 id
+//                 volumeInfo {
+//                     title
+//                     authors
+//                     description
+//                     publishedDate
+//                 }
+//             }
+//         }
+//     }
+// `;

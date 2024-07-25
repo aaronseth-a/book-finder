@@ -40,13 +40,13 @@ const resolvers = {
     },
     saveBook: async(parent, {bookInfo}, context)=>{
       if(context.user){
-        context.user.bookCount += 1;
+        context.user.booksCount += 1;
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
           { 
             $addToSet: {savedBooks: bookInfo},
-            $set: { bookCount: context.user.bookCount} 
+            $set: { booksCount: context.user.booksCount} 
           },
           { new: true }
         );
@@ -56,13 +56,13 @@ const resolvers = {
     },
     removeBook: async(parent,{bookId},context)=>{
       if(context.user){
-        context.user.bookCount -=1;
+        context.user.booksCount -=1;
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
           {
             $pull: {savedBooks: {bookId: bookId} },
-            $set: { bookCount: context.user.bookCount }
+            $set: { booksCount: context.user.booksCount }
           },
           { new: true }
         )

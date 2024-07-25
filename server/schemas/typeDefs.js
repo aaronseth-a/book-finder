@@ -3,12 +3,12 @@ const typeDefs =`
         _id: ID!
         username: String
         email: String
-        bookCount: Int
+        booksCount: Int
         savedBooks: [Book]
     }
 
     type Book {
-        bookId: Int!
+        bookId: String!
         authors: [String]
         description: String!
         title: String!
@@ -37,6 +37,8 @@ const typeDefs =`
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
         saveBook(bookInfo: BookInfo!): User
-        removeBook(bookId: Int!): User
+        removeBook(bookId: String!): User
     }
 `
+
+module.exports = typeDefs;
